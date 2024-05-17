@@ -74,7 +74,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # add OSQP 
 # follow https://osqp.org/docs/get_started/sources.html#build-from-sources to install OSQP from sources
 WORKDIR /tmp
-RUN git clone --recursive https://github.com/oxfordcontrol/osqp
+RUN git clone --branch v0.6.0 --recursive https://github.com/osqp/osqp.git
 WORKDIR /tmp/osqp
 RUN mkdir build 
 WORKDIR /tmp/osqp/build
@@ -88,7 +88,7 @@ RUN apt-get install -y ipython
 
 # add osqp-eigen
 WORKDIR /tmp
-RUN git clone https://github.com/robotology/osqp-eigen.git
+RUN git clone --branch v0.8.0 https://github.com/robotology/osqp-eigen.git
 WORKDIR /tmp/osqp-eigen
 RUN mkdir build 
 WORKDIR /tmp/osqp-eigen/build
